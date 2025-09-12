@@ -3,305 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>איתן אסולין - עריכת וידאו</title>
-    <!-- Tailwind CSS CDN -->
+    <title>איתן אסולין | עריכת וידאו מקצועית</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap');
         body {
-            font-family: 'Inter', sans-serif;
-            direction: rtl;
-            text-align: right;
-            transition: background-color 0.5s ease, color 0.5s ease;
+            font-family: 'Heebo', sans-serif;
+            background-color: #0d0d0d;
+            color: #f0f0f0;
         }
-        /* Transition for expanding content */
-        .transition-max-height {
-            transition: max-height 0.5s ease-in-out;
-            max-height: 0;
-            overflow: hidden;
+        .text-neon {
+            color: #00bfff;
         }
-        .transition-max-height.active {
-            max-height: 50000px; /* Adjust as needed for content length */
+        .bg-gradient-neon {
+            background-image: linear-gradient(45deg, #1f1f1f, #00bfff, #1f1f1f);
         }
-        /* Fade in and move up animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .btn-primary {
+            background-color: #00bfff;
+            color: #1f1f1f;
+            transition: all 0.3s ease;
         }
-        .animate-fadeInUp {
-            animation: fadeInUp 0.8s ease-out forwards;
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #00bfff;
         }
-        /* Scale in animation */
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+        .card {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
         }
-        .animate-scaleIn {
-            animation: scaleIn 0.6s ease-out forwards;
+        .card:hover {
+            transform: translateY(-5px);
         }
-
-        /* New animation for container appearance */
-        @keyframes containerGrow {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .showreel-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
         }
-        .animate-container-grow {
-            animation: containerGrow 0.5s ease-out forwards;
+        .showreel-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #00bfff;
+            border-radius: 12px;
+            box-shadow: 0 0 20px #00bfff;
         }
-
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00bfff;
+            border-radius: 4px;
+        }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800 p-4">
+<body class="bg-[#0d0d0d] text-gray-200">
 
-    <!-- Dark Mode Toggle Button -->
-    <div class="absolute top-4 left-4 z-50">
-        <button id="theme-toggle" class="p-3 rounded-full bg-gray-200 text-gray-800 shadow-md focus:outline-none transition-colors duration-500 flex items-center justify-center">
-            <svg id="moon-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-            </svg>
-            <svg id="sun-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-            </svg>
-        </button>
-    </div>
+    <!-- Header / Navbar -->
+    <header class="p-6">
+        <nav class="flex justify-between items-center max-w-7xl mx-auto">
+            <div class="text-2xl font-bold text-neon">איתן אסולין</div>
+            <ul class="flex space-x-6 space-x-reverse text-lg">
+                <li><a href="#about" class="hover:text-neon transition-colors duration-300">אודות</a></li>
+                <li><a href="#services" class="hover:text-neon transition-colors duration-300">שירותים</a></li>
+                <li><a href="#portfolio" class="hover:text-neon transition-colors duration-300">תיק עבודות</a></li>
+                <li><a href="#contact" class="hover:text-neon transition-colors duration-300">יצירת קשר</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Main Container -->
-    <div id="main-container" class="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl p-6 md:p-10 my-8 transition-colors duration-500">
-
-        <!-- Header Section -->
-        <header class="text-center mb-12">
-            <h1 id="title" class="text-4xl md:text-5xl font-extrabold text-blue-600 mb-2 leading-tight transition-colors duration-500 opacity-0">
-                <strong>איתן אסולין</strong> - עריכת וידאו
+    <!-- Hero Section -->
+    <section id="hero" class="py-20 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-l from-[#00bfff] to-gray-400">
+                איתן אסולין
             </h1>
-            <p id="subtitle" class="text-xl md:text-2xl text-gray-600 font-medium transition-colors duration-500 opacity-0">
-                הופך רעיונות למציאות עם After Effects
+            <p class="text-2xl md:text-3xl mb-8">
+                עורך וידאו מקצועי עם התמחות ב- <span class="text-neon font-bold">After Effects</span>
             </p>
-        </header>
-
-        <!-- About Me Section -->
-        <section class="mb-12">
-            <div id="about-me" class="bg-blue-50 p-6 rounded-xl shadow-inner border-r-4 border-blue-400 transition-colors duration-500 hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out opacity-0">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-700 mb-4 transition-colors duration-500">קצת עליי</h2>
-                <p class="text-lg md:text-xl text-gray-600 leading-relaxed transition-colors duration-500">
-                    היי! שמי איתן אסולין, אני עורך וידאו בן 14 שמתמחה בשימוש בתוכנת After Effects. אני יוצר עריכות מקצועיות ומרשימות עם פוקוס על פרטים קטנים וסגנון ייחודי, והכל במטרה שהווידאו שלכם יבלוט.
-                </p>
-            </div>
-        </section>
-
-        <!-- Dynamic Content Buttons -->
-        <div class="flex flex-col md:flex-row gap-4 mb-8 justify-center items-center">
-            <!-- Services Button -->
-            <button onclick="toggleContent('services-container')"
-                    class="w-full md:w-1/3 bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
-                הצגת שירותים
-            </button>
-            <!-- Prices Button -->
-            <button onclick="toggleContent('prices-container')"
-                    class="w-full md:w-1/3 bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
-                הצגת מחירון
-            </button>
-            <!-- Contact Button -->
-            <button onclick="toggleContent('contact-container')"
-                    class="w-full md:w-1/3 bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
-                יצירת קשר
-            </button>
+            <p class="max-w-3xl mx-auto text-lg mb-12">
+                אני הופך רעיונות למציאות ויזואלית באמצעות עריכה דינמית, בואו ניצור יחד את התוכן הבא שלכם.
+            </p>
+            <a href="https://wa.me/972547988808" target="_blank" class="btn-primary text-black font-semibold text-lg py-3 px-8 rounded-full shadow-lg">
+                צרו קשר עכשיו!
+            </a>
         </div>
-    </div>
-    
-    <!-- Dynamic Content Containers (outside the main container) -->
-    <!-- Services Section -->
-    <section id="services-container" class="max-w-4xl mx-auto transition-max-height bg-white p-6 rounded-2xl shadow-xl border-r-4 border-blue-400 transition-colors duration-500 mt-8 hover:shadow-2xl hover:scale-101 transition-all duration-300 ease-in-out">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-700 mb-4 transition-colors duration-500"></h2>
-        <ul class="list-disc list-inside space-y-2 text-lg md:text-xl text-gray-600 leading-relaxed transition-colors duration-500">
-            <li>עריכת פרסומות</li>
-            <li>עריכת סרטונים</li>
-            <li>עריכת סרטון מוזיקה</li>
-            <li>תיקון צבעים</li>
-            <li>קורס עריכה פרטי</li>
-        </ul>
     </section>
 
-    <!-- Prices Section -->
-    <section id="prices-container" class="max-w-4xl mx-auto transition-max-height bg-white p-6 rounded-2xl shadow-xl border-r-4 border-blue-400 transition-colors duration-500 mt-8 hover:shadow-2xl hover:scale-101 transition-all duration-300 ease-in-out">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-700 mb-4 transition-colors duration-500"></h2>
-        <ul class="list-disc list-inside space-y-2 text-lg md:text-xl text-gray-600 leading-relaxed transition-colors duration-500">
-            <li> (רשימה זמנית) </li>
-            <li>עריכה פרסומות : 100 שח לפרסום בכל מקום</li>
-            <li>עריכת סרטונים : 50 שח בשביל כל דקה בסרטון</li>
-            <li>עריכת סרטון מוזיקה : 75 שח בשביל כל דקה בסרטון</li>
-            <li>תיקון צבעים : 25 שח לתמונה</li>
-            <li>קורס עריכה פרטי : 75 שח לשיעור או 600 ל10 שיעורים</li>
-        </ul>
+    <!-- Showreel Section -->
+    <section id="showreel" class="py-16">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="text-4xl font-bold text-center mb-12 text-neon">צפו בסרטון הקרה קצר</h2>
+            <div class="showreel-container">
+                <!-- Replace with your actual YouTube or Vimeo embed link -->
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="text-4xl font-bold text-center mb-12 text-neon">מידע עלי</h2>
+            <div class="flex flex-col md:flex-row items-center md:space-x-8 md:space-x-reverse">
+                <div class="md:w-1/3 mb-8 md:mb-0">
+                    
+                </div>
+                <div class="md:w-2/3 text-lg">
+                    <p class="mb-4">
+                        נעים מאוד, אני איתן אסולין, בן 14 אני עורך וידאו כבר מגיל 12 הייתי עד עכשיו עורך סתם בשביל הכיף אבל חשבתי מה אם אני יכול לעשות את זה ליותר מתחביב 
+                    </p>
+                    <p class="mb-4">
+                        ואז החלתתי שאני רוצה לעשות את זה ליותר מסתם עוד תחביב, אני מאמין שלכל לקוח מגיע שירות הוגן במחיר הוגן
+                    </p>
+                    <p>
+                        אני תמיד מחפש איך להמשיך ללמוד בזמן שאני נותן את השירות הכי טוב, אז אם אתם מחפשים שירות הוגן במחיר הוגן הגעתם למקום הנכון
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-[#141414]">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <h2 class="text-4xl font-bold text-center mb-12 text-neon">השירותים שלי</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 text-center">
+                <div class="card p-6 rounded-xl">
+                    <div class="text-4xl mb-4">🎬</div>
+                    <h3 class="text-xl font-bold mb-2 text-neon">עריכת פרסמות</h3>
+                    <p>עריכת פרסומות לשימוש בכל מקום</p>
+                </div>
+                <div class="card p-6 rounded-xl">
+                    <div class="text-4xl mb-4">✨</div>
+                    <h3 class="text-xl font-bold mb-2 text-neon">אפקטים ויזואליים</h3>
+                    <p>שילוב אפקטים מיוחדים (VFX) ליצירת מראה הוליוודי ובלתי נשכח.</p>
+                </div>
+                <div class="card p-6 rounded-xl">
+                    <div class="text-4xl mb-4">🎨</div>
+                    <h3 class="text-xl font-bold mb-2 text-neon">תיקון צבעים</h3>
+                    <p>תיקון צבעים כדי להוציע את הרגש מכל תמונה</p>
+                </div>
+                <div class="card p-6 rounded-xl">
+                    <div class="text-4xl mb-4">📱</div>
+                    <h3 class="text-xl font-bold mb-2 text-neon">תוכן לסושיאל</h3>
+                    <p>עריכת סרטונים קצרים ומדויקים המותאמים במיוחד לפלטפורמות כמו טיקטוק ואינסטגרם.</p>
+                </div>
+                <div class="card p-6 rounded-xl">
+                    <div class="text-4xl mb-4">🎵</div>
+                    <h3 class="text-xl font-bold mb-2 text-neon">קליפ מוזיקה</h3>
+                    <p>קליפ מוזיקה פשוט עד 4 דקות </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <h2 class="text-4xl font-bold text-center mb-12 text-neon">תיק עבודות</h2>
+            <p class="text-center mb-8 text-lg">
+                הנה כמה דוגמאות לפרויקטים עליהם עבדתי.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Example Portfolio Item 1 -->
+                <div class="card rounded-xl overflow-hidden">
+                    <div class="showreel-container">
+                        <iframe src="https://www.youtube.com/embed/Fw91n6q8t_U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-neon">סרטון קידום מכירות</h3>
+                        <p class="text-sm">סרטון זה כולל פרסומת שעבדתי עלי</p>
+                    </div>
+                </div>
+                <!-- Example Portfolio Item 2 -->
+                <div class="card rounded-xl overflow-hidden">
+                    <div class="showreel-container">
+                        <iframe src="https://www.youtube.com/embed/2_H9tD_V68Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-neon">תיקון צבעים</h3>
+                        <p class="text-sm">סרטון זה כולל תמונה מלפני ואחרי תיקון של הצבעים</p>
+                    </div>
+                </div>
+                <!-- Example Portfolio Item 3 -->
+                <div class="card rounded-xl overflow-hidden">
+                    <div class="showreel-container">
+                        <iframe src="https://www.youtube.com/embed/z1S_U24r-t4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-neon">קליפ מוזיקה</h3>
+                        <p class="text-sm">סרטון זה כולל קליפ מוזיקה לדוגמה</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact-container" class="max-w-4xl mx-auto transition-max-height bg-white p-6 rounded-2xl shadow-xl border-r-4 border-blue-400 transition-colors duration-500 mt-8 hover:shadow-2xl hover:scale-101 transition-all duration-300 ease-in-out">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-700 mb-4 transition-colors duration-500"></h2>
-        <ul class="list-disc list-inside space-y-2 text-lg md:text-xl text-gray-600 leading-relaxed transition-colors duration-500">
-            <li><strong>מספר טלפון:</strong> <a href="https://wa.me/972547988808" class="text-blue-600 hover:underline">054-7988808</a></li>
-            <li><strong>אימייל:</strong> <a href="mailto:eithanasulin68@gmail.com" class="text-blue-600 hover:underline">eithanasulin68@gmail.com</a></li>
-        </ul>
+    <section id="contact" class="py-20 bg-[#141414]">
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+            <h2 class="text-4xl font-bold mb-8 text-neon">צרו קשר</h2>
+            <p class="text-lg mb-8">
+                מוכנים להתחיל ליצור? אני כאן כדי להגשים את הרעיון הבא שלכם.
+                <br>
+                פנו אליי בווטסאפ ונתחיל לעבוד!
+            </p>
+            <a href="https://wa.me/972547988808" target="_blank" class="btn-primary inline-block text-black font-semibold text-lg py-3 px-8 rounded-full shadow-lg">
+                שלחו לי הודעה בווטסאפ
+            </a>
+        </div>
     </section>
 
-    <!-- JavaScript for Hide/Unhide functionality and Dark Mode -->
-    <script>
-        // Hide/Unhide Logic
-        function toggleContent(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                const isActive = element.classList.contains('active');
+    <!-- Footer -->
+    <footer class="p-6 text-center text-sm text-gray-400">
+        <p>
+            &copy; 2025 איתן אסולין. כל הזכויות שמורות.
+            <br>
+            מעוצב ופותח על ידי איתן אסולין.
+        </p>
+    </footer>
 
-                // Close all active sections first
-                document.querySelectorAll('.transition-max-height.active').forEach(item => {
-                    item.classList.remove('active', 'animate-container-grow');
-                });
-
-                // If the clicked section was not active, open it
-                if (!isActive) {
-                    // Smoothly scroll to the element first
-                    element.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Then add the active class to start the expand and grow animation
-                    element.classList.add('active', 'animate-container-grow');
-                }
-            } else {
-                console.log(`Element with id '${id}' not found.`);
-            }
-        }
-
-        // Dark Mode Logic
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const sunIcon = document.getElementById('sun-icon');
-        const moonIcon = document.getElementById('moon-icon');
-        const body = document.body;
-        const mainContainer = document.getElementById('main-container');
-        const aboutMeDiv = document.getElementById('about-me');
-        const servicesContainer = document.getElementById('services-container');
-        const pricesContainer = document.getElementById('prices-container');
-        const contactContainer = document.getElementById('contact-container');
-
-
-        function applyTheme(isDark) {
-            if (isDark) {
-                // Apply dark mode styles
-                body.classList.add('bg-gray-900', 'text-gray-200');
-                body.classList.remove('bg-gray-100', 'text-gray-800');
-                mainContainer.classList.add('bg-gray-800');
-                mainContainer.classList.remove('bg-white');
-                aboutMeDiv.classList.add('bg-blue-950', 'border-blue-600');
-                aboutMeDiv.classList.remove('bg-blue-50', 'border-blue-400');
-                
-                if (servicesContainer) {
-                    servicesContainer.classList.add('bg-gray-800', 'border-blue-600');
-                    servicesContainer.classList.remove('bg-white', 'border-blue-400');
-                }
-                if (pricesContainer) {
-                    pricesContainer.classList.add('bg-gray-800', 'border-blue-600');
-                    pricesContainer.classList.remove('bg-white', 'border-blue-400');
-                }
-
-                if (contactContainer) {
-                    contactContainer.classList.add('bg-gray-800', 'border-blue-600');
-                    contactContainer.classList.remove('bg-white', 'border-blue-400');
-                }
-                
-                themeToggleBtn.classList.add('bg-gray-700', 'text-gray-200');
-                themeToggleBtn.classList.remove('bg-gray-200', 'text-gray-800');
-
-                // Update text colors for dark mode
-                document.querySelectorAll('h1, h2, p, ul, li').forEach(el => {
-                    el.classList.add('text-gray-200');
-                    el.classList.remove('text-gray-800');
-                });
-                document.querySelector('h1').classList.add('text-blue-400');
-                document.querySelector('h1').classList.remove('text-blue-600');
-                document.querySelector('p').classList.add('text-gray-400');
-                document.querySelector('p').classList.remove('text-gray-600');
-
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-            } else {
-                // Apply light mode styles
-                body.classList.add('bg-gray-100', 'text-gray-800');
-                body.classList.remove('bg-gray-900', 'text-gray-200');
-                mainContainer.classList.add('bg-white');
-                mainContainer.classList.remove('bg-gray-800');
-                aboutMeDiv.classList.add('bg-blue-50', 'border-blue-400');
-                aboutMeDiv.classList.remove('bg-blue-950', 'border-blue-600');
-
-                if (servicesContainer) {
-                    servicesContainer.classList.add('bg-white', 'border-blue-400');
-                    servicesContainer.classList.remove('bg-gray-800', 'border-blue-600');
-                }
-                if (pricesContainer) {
-                    pricesContainer.classList.add('bg-white', 'border-blue-400');
-                    pricesContainer.classList.remove('bg-gray-800', 'border-blue-600');
-                }
-
-                if (contactContainer) {
-                    contactContainer.classList.add('bg-white', 'border-blue-400');
-                    contactContainer.classList.remove('bg-gray-800', 'border-blue-600');
-                }
-
-                themeToggleBtn.classList.add('bg-gray-200', 'text-gray-800');
-                themeToggleBtn.classList.remove('bg-gray-700', 'text-gray-200');
-
-                // Update text colors for light mode
-                document.querySelectorAll('h1, h2, p, ul, li').forEach(el => {
-                    el.classList.add('text-gray-800');
-                    el.classList.remove('text-gray-200');
-                });
-                document.querySelector('h1').classList.add('text-blue-600');
-                document.querySelector('h1').classList.remove('text-blue-400');
-                document.querySelector('p').classList.add('text-gray-600');
-                document.querySelector('p').classList.remove('text-gray-400');
-                
-                sunIcon.classList.remove('hidden');
-                moonIcon.classList.add('hidden');
-            }
-        }
-
-        // Initial theme setup based on localStorage or system preference
-        const isDarkTheme = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        applyTheme(isDarkTheme);
-
-        // Event listener for the toggle button
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = localStorage.theme;
-            if (currentTheme === 'dark') {
-                localStorage.theme = 'light';
-                applyTheme(false);
-            } else {
-                localStorage.theme = 'dark';
-                applyTheme(true);
-            }
-        });
-
-        // Apply animations after the DOM content is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('title').classList.add('animate-fadeInUp');
-            document.getElementById('subtitle').classList.add('animate-fadeInUp');
-            document.getElementById('about-me').classList.add('animate-scaleIn');
-        });
-    </script>
 </body>
 </html>
