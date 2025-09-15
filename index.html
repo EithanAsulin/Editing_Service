@@ -12,29 +12,16 @@
             background-color: #0d0d0d;
             color: #f0f0f0;
         }
-        .text-neon {
-            color: #00bfff;
+        /* Custom scrollbar styling for a unique visual effect */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        .bg-gradient-neon {
-            background-image: linear-gradient(45deg, #1f1f1f, #00bfff, #1f1f1f);
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
         }
-        .btn-primary {
-            background-color: #00bfff;
-            color: #1f1f1f;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px #00bfff;
-        }
-        .card {
-            background-color: #1a1a1a;
-            border: 1px solid #333;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
+        ::-webkit-scrollbar-thumb {
+            background: #00bfff;
+            border-radius: 4px;
         }
         .showreel-container {
             position: relative;
@@ -51,16 +38,6 @@
             border-radius: 12px;
             box-shadow: 0 0 20px #00bfff;
         }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #00bfff;
-            border-radius: 4px;
-        }
     </style>
 </head>
 <body class="bg-[#0d0d0d] text-gray-200">
@@ -68,12 +45,12 @@
     <!-- Header / Navbar -->
     <header class="p-6">
         <nav class="flex justify-between items-center max-w-7xl mx-auto">
-            <div class="text-2xl font-bold text-neon">איתן אסולין</div>
+            <div class="text-2xl font-bold text-[#00bfff]">איתן אסולין</div>
             <ul class="flex space-x-6 space-x-reverse text-lg">
-                <li><a href="#about" class="hover:text-neon transition-colors duration-300">אודות</a></li>
-                <li><a href="#services" class="hover:text-neon transition-colors duration-300">שירותים</a></li>
-                <li><a href="#portfolio" class="hover:text-neon transition-colors duration-300">תיק עבודות</a></li>
-                <li><a href="#contact" class="hover:text-neon transition-colors duration-300">יצירת קשר</a></li>
+                <li><a href="#about" class="hover:text-[#00bfff] transition-colors duration-300">אודות</a></li>
+                <li><a href="#services" class="hover:text-[#00bfff] transition-colors duration-300">שירותים</a></li>
+                <li><a href="#portfolio" class="hover:text-[#00bfff] transition-colors duration-300">תיק עבודות</a></li>
+                <li><a href="#contact" class="hover:text-[#00bfff] transition-colors duration-300">יצירת קשר</a></li>
             </ul>
         </nav>
     </header>
@@ -85,12 +62,13 @@
                 איתן אסולין
             </h1>
             <p class="text-2xl md:text-3xl mb-8">
-                עורך וידאו מקצועי עם התמחות ב- <span class="text-neon font-bold">After Effects</span>
+                עורך וידאו מקצועי עם התמחות ב- <span class="text-[#00bfff] font-bold">After Effects</span>
             </p>
             <p class="max-w-3xl mx-auto text-lg mb-12">
                 אני הופך רעיונות למציאות ויזואלית באמצעות עריכה דינמית, בואו ניצור יחד את התוכן הבא שלכם.
             </p>
-            <a href="https://wa.me/972547988808" target="_blank" class="btn-primary text-black font-semibold text-lg py-3 px-8 rounded-full shadow-lg">
+            <a href="https://wa.me/972547988808" target="_blank"
+                class="inline-block bg-[#00bfff] text-black font-semibold text-lg py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_#00bfff]">
                 צרו קשר עכשיו!
             </a>
         </div>
@@ -99,10 +77,12 @@
     <!-- Showreel Section -->
     <section id="showreel" class="py-16">
         <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="text-4xl font-bold text-center mb-12 text-neon">צפו בסרטון הקרה קצר</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-[#00bfff]">צפו בסרטון הקרה קצר</h2>
             <div class="showreel-container">
-                <!-- Replace with your actual YouTube or Vimeo embed link -->
-                <iframe src="https://www.youtube.com/embed?v=972pj-71wW4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- Corrected YouTube embed link with proper video ID path -->
+                <iframe src="https://www.youtube.com/embed/972pj-71wW4" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -110,10 +90,12 @@
     <!-- About Section -->
     <section id="about" class="py-20">
         <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="text-4xl font-bold text-center mb-12 text-neon">מידע עלי</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-[#00bfff]">מידע עלי</h2>
             <div class="flex flex-col md:flex-row items-center md:space-x-8 md:space-x-reverse">
+                <!-- Added a placeholder image for the profile picture -->
                 <div class="md:w-1/3 mb-8 md:mb-0">
-                    
+                    <img src="https://placehold.co/300x300/1a1a1a/00bfff?text=איתן" alt="Eitan Asulin's profile picture"
+                        class="rounded-full border-4 border-[#00bfff] shadow-lg w-full h-auto max-w-xs mx-auto" />
                 </div>
                 <div class="md:w-2/3 text-lg">
                     <p class="mb-4">
@@ -123,7 +105,7 @@
                         אני מתרגם רעיונות לסרטונים, פרסומות, תוכן לסושיאל, אפקטים ויזואליים וקליפים מילוליים - הכל עם טאצ' אישי וחדשני
                     </p>
                     <p>
-                       אם אתה מחפש איך אתה יכול לקחת את הסרטונים שלך לרמה הבא במחיר הוגן עם שירות מקצועי הגעתם למקום הנכון! 
+                        אם אתה מחפש איך אתה יכול לקחת את הסרטונים שלך לרמה הבא במחיר הוגן עם שירות מקצועי הגעתם למקום הנכון!
                     </p>
                 </div>
             </div>
@@ -133,32 +115,34 @@
     <!-- Services Section -->
     <section id="services" class="py-20 bg-[#141414]">
         <div class="container mx-auto px-4 max-w-7xl">
-            <h2 class="text-4xl font-bold text-center mb-12 text-neon">השירותים שלי</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-[#00bfff]">השירותים שלי</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 text-center">
-                <div class="card p-6 rounded-xl">
+                <!-- Service Cards Refactored to use Tailwind classes -->
+                <div class="bg-[#1a1a1a] border border-gray-700 shadow-lg p-6 rounded-xl transition-transform duration-300 hover:translate-y-[-5px]">
                     <div class="text-4xl mb-4">🎬</div>
-                    <h3 class="text-xl font-bold mb-2 text-neon">עריכת פרסמות</h3>
+                    <h3 class="text-xl font-bold mb-2 text-[#00bfff]">עריכת פרסמות</h3>
                     <p>עריכת פרסומות לשימוש בכל מקום</p>
                 </div>
-                <div class="card p-6 rounded-xl">
+                <div class="bg-[#1a1a1a] border border-gray-700 shadow-lg p-6 rounded-xl transition-transform duration-300 hover:translate-y-[-5px]">
                     <div class="text-4xl mb-4">✨</div>
-                    <h3 class="text-xl font-bold mb-2 text-neon">אפקטים ויזואליים</h3>
+                    <h3 class="text-xl font-bold mb-2 text-[#00bfff]">אפקטים ויזואליים</h3>
                     <p>שילוב אפקטים מיוחדים (VFX) ליצירת מראה הוליוודי ובלתי נשכח.</p>
                 </div>
-                <div class="card p-6 rounded-xl">
+                <div class="bg-[#1a1a1a] border border-gray-700 shadow-lg p-6 rounded-xl transition-transform duration-300 hover:translate-y-[-5px]">
                     <div class="text-4xl mb-4">🎨</div>
-                    <h3 class="text-xl font-bold mb-2 text-neon">תיקון צבעים</h3>
-                    <p>תיקון צבעים כדי להוציע את הרגש מכל תמונה</p>
+                    <h3 class="text-xl font-bold mb-2 text-[#00bfff]">תיקון צבעים</h3>
+                    <p>תיקון צבעים כדי להוציא את הרגש מכל תמונה</p>
                 </div>
-                <div class="card p-6 rounded-xl">
+                <div class="bg-[#1a1a1a] border border-gray-700 shadow-lg p-6 rounded-xl transition-transform duration-300 hover:translate-y-[-5px]">
                     <div class="text-4xl mb-4">📱</div>
-                    <h3 class="text-xl font-bold mb-2 text-neon">תוכן לסושיאל</h3>
+                    <h3 class="text-xl font-bold mb-2 text-[#00bfff]">תוכן לסושיאל</h3>
                     <p>עריכת סרטונים קצרים ומדויקים המותאמים במיוחד לפלטפורמות כמו טיקטוק ואינסטגרם.</p>
                 </div>
-                <div class="card p-6 rounded-xl">
+                <div class="bg-[#1a1a1a] border border-gray-700 shadow-lg p-6 rounded-xl transition-transform duration-300 hover:translate-y-[-5px]">
                     <div class="text-4xl mb-4">🎵</div>
-                    <h3 class="text-xl font-bold mb-2 text-neon">קליפ מוזיקה</h3>
+                    <h3 class="text-xl font-bold mb-2 text-[#00bfff]">קליפ מוזיקה</h3>
                     <p>קליפ מוזיקה פשוט עד 4 דקות </p>
+                </div>
             </div>
         </div>
     </section>
@@ -166,38 +150,38 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="py-20">
         <div class="container mx-auto px-4 max-w-7xl">
-            <h2 class="text-4xl font-bold text-center mb-12 text-neon">תיק עבודות</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-[#00bfff]">תיק עבודות</h2>
             <p class="text-center mb-8 text-lg">
                 הנה כמה דוגמאות לפרויקטים עליהם עבדתי.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Example Portfolio Item 1 -->
-                <div class="card rounded-xl overflow-hidden">
+                <!-- Portfolio Item 1 -->
+                <div class="bg-[#1a1a1a] border border-gray-700 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:translate-y-[-5px]">
                     <div class="showreel-container">
                         <iframe src="https://www.youtube.com/embed/Fw91n6q8t_U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-neon">סרטון קידום מכירות</h3>
+                        <h3 class="text-xl font-bold mb-2 text-[#00bfff]">סרטון קידום מכירות</h3>
                         <p class="text-sm">סרטון זה כולל פרסומת שעבדתי עלי</p>
                     </div>
                 </div>
-                <!-- Example Portfolio Item 2 -->
-                <div class="card rounded-xl overflow-hidden">
+                <!-- Portfolio Item 2 -->
+                <div class="bg-[#1a1a1a] border border-gray-700 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:translate-y-[-5px]">
                     <div class="showreel-container">
                         <iframe src="https://www.youtube.com/embed/2_H9tD_V68Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-neon">תיקון צבעים</h3>
+                        <h3 class="text-xl font-bold mb-2 text-[#00bfff]">תיקון צבעים</h3>
                         <p class="text-sm">סרטון זה כולל תמונה מלפני ואחרי תיקון של הצבעים</p>
                     </div>
                 </div>
-                <!-- Example Portfolio Item 3 -->
-                <div class="card rounded-xl overflow-hidden">
+                <!-- Portfolio Item 3 with corrected embed link -->
+                <div class="bg-[#1a1a1a] border border-gray-700 shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:translate-y-[-5px]">
                     <div class="showreel-container">
-                        <iframe src=https://www.youtube.com/embed/972pj-71wW4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/972pj-71wW4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-neon">קליפ מוזיקה</h3>
+                        <h3 class="text-xl font-bold mb-2 text-[#00bfff]">קליפ מוזיקה</h3>
                         <p class="text-sm">סרטון זה כולל קליפ מוזיקה לדוגמה</p>
                     </div>
                 </div>
@@ -208,13 +192,13 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-[#141414]">
         <div class="container mx-auto px-4 max-w-3xl text-center">
-            <h2 class="text-4xl font-bold mb-8 text-neon">צרו קשר</h2>
+            <h2 class="text-4xl font-bold mb-8 text-[#00bfff]">צרו קשר</h2>
             <p class="text-lg mb-8">
                 מוכנים להתחיל ליצור? אני כאן כדי להגשים את הרעיון הבא שלכם.
                 <br>
                 פנו אליי בווטסאפ ונתחיל לעבוד!
             </p>
-            <a href="https://wa.me/972547988808" target="_blank" class="btn-primary inline-block text-black font-semibold text-lg py-3 px-8 rounded-full shadow-lg">
+            <a href="https://wa.me/972547988808" target="_blank" class="inline-block bg-[#00bfff] text-black font-semibold text-lg py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_#00bfff]">
                 שלחו לי הודעה בווטסאפ
             </a>
         </div>
@@ -231,6 +215,3 @@
 
 </body>
 </html>
-
-
-
